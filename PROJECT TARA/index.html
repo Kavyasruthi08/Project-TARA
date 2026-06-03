@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="TARA — AI-powered platform that keeps migrant and vulnerable children connected to education, anywhere they go." />
+  <title>TARA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Phone Frame Wrapper -->
+  <div class="phone-frame">
+    <div class="phone-notch"></div>
+    <div class="phone-screen" id="phoneScreen">
+
+      <!-- ===== SCREEN 1 — WELCOME DASHBOARD ===== -->
+      <section id="screen-dashboard" class="screen active">
+        <div class="screen-scroll">
+          <header class="dash-header">
+            <div class="logo-row">
+              <div class="logo-icon">
+                <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="url(#gL)" stroke-width="3"/><path d="M16 30c0-5 4-9 8-9s8 4 8 9" stroke="url(#gL)" stroke-width="2.5" stroke-linecap="round"/><circle cx="24" cy="16" r="5" fill="url(#gL)"/><defs><linearGradient id="gL" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#6C63FF"/><stop offset="1" stop-color="#00D4AA"/></linearGradient></defs></svg>
+              </div>
+              <div>
+                <h1 class="app-title">TARA</h1>
+                <p class="app-tag">Tracking And Retaining Access</p>
+              </div>
+            </div>
+            <div class="greeting">
+              <p class="greeting-hi" id="greetingText">Good Afternoon</p>
+              <p class="greeting-sub">What would you like to do?</p>
+            </div>
+          </header>
+
+          <!-- Quick Stats -->
+          <div class="stats-strip">
+            <div class="stat-pill">
+              <span class="stat-pill-num" id="statTotal">10</span>
+              <span class="stat-pill-lbl">Children</span>
+            </div>
+            <div class="stat-pill stat-pill--alert">
+              <span class="stat-pill-num">23</span>
+              <span class="stat-pill-lbl">Alerts</span>
+            </div>
+            <div class="stat-pill stat-pill--green">
+              <span class="stat-pill-num">87%</span>
+              <span class="stat-pill-lbl">Attendance</span>
+            </div>
+          </div>
+
+          <!-- Action Grid -->
+          <div class="action-grid">
+            <button class="action-card" id="btn-register" onclick="navigateTo('screen-voice')">
+              <div class="action-icon action-icon--purple">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a4 4 0 0 0-4 4v7a4 4 0 0 0 8 0V5a4 4 0 0 0-4-4Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+              </div>
+              <span class="action-label">Register Child</span>
+            </button>
+
+            <button class="action-card" id="btn-find" onclick="navigateTo('screen-profile')">
+              <div class="action-icon action-icon--teal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              </div>
+              <span class="action-label">Find Child</span>
+            </button>
+
+            <button class="action-card" id="btn-risk" onclick="navigateTo('screen-alerts')">
+              <div class="action-icon action-icon--red">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              </div>
+              <span class="action-label">Risk Alerts</span>
+            </button>
+
+            <button class="action-card" id="btn-migrate" onclick="navigateTo('screen-migration')">
+              <div class="action-icon action-icon--amber">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M13 5l7 7-7 7"/></svg>
+              </div>
+              <span class="action-label">Migration</span>
+            </button>
+
+            <!-- Reports full-width centered -->
+            <button class="action-card" id="btn-reports" onclick="navigateTo('screen-supervisor')">
+              <div class="action-icon action-icon--blue">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+              </div>
+              <span class="action-label">Reports</span>
+            </button>
+          </div>
+
+          <!-- Project Branding -->
+          <div class="project-branding">
+            <div class="brand-line"></div>
+            <p class="brand-text">Project by <strong>EchoHands</strong></p>
+          
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SCREEN 2 — VOICE REGISTRATION ===== -->
+      <section id="screen-voice" class="screen">
+        <div class="screen-scroll">
+          <nav class="mobile-nav">
+            <button class="nav-back" id="voice-back" onclick="navigateTo('screen-dashboard')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <h2 class="nav-title">Voice Registration</h2>
+            <div class="nav-spacer"></div>
+          </nav>
+
+          <div class="voice-section">
+            <div class="voice-visual" id="voiceVisual">
+              <div class="voice-ring ring-1"></div>
+              <div class="voice-ring ring-2"></div>
+              <div class="voice-ring ring-3"></div>
+              <button class="mic-btn" id="micBtn" onclick="toggleRecording()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a4 4 0 0 0-4 4v7a4 4 0 0 0 8 0V5a4 4 0 0 0-4-4Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+              </button>
+            </div>
+            <p class="voice-status" id="voiceLabel">Tap and Speak</p>
+            <p class="voice-hint">Say child's name, age & parent name</p>
+
+            <div class="transcript-box" id="voiceTranscript">
+              <div class="transcript-empty">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <span>Transcript appears here…</span>
+              </div>
+            </div>
+
+            <div class="reg-form" id="voiceFields" style="display:none;">
+              <div class="form-field">
+                <label>Child's Name</label>
+                <input id="vfName" placeholder="Detected name…" />
+              </div>
+              <div class="form-row">
+                <div class="form-field form-field--half">
+                  <label>Age</label>
+                  <input id="vfAge" type="number" placeholder="Age" />
+                </div>
+                <div class="form-field form-field--half">
+                  <label>Language</label>
+                  <select id="vfLang">
+                    <option>Hindi</option><option>English</option><option>Tamil</option><option>Telugu</option><option>Bengali</option><option>Marathi</option><option>Kannada</option><option>Gujarati</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-field">
+                <label>Parent Name</label>
+                <input id="vfParent" placeholder="Parent name…" />
+              </div>
+              <button class="btn-primary" id="saveRegistration" onclick="saveRegistration()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Save Registration
+              </button>
+            </div>
+          </div>
+
+          <div class="project-branding">
+            <p class="brand-text">Project by <strong>EchoHands</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SCREEN 3 — CHILD PROFILE ===== -->
+      <section id="screen-profile" class="screen">
+        <div class="screen-scroll">
+          <nav class="mobile-nav">
+            <button class="nav-back" id="profile-back" onclick="navigateTo('screen-dashboard')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <h2 class="nav-title">Find Child</h2>
+            <div class="nav-spacer"></div>
+          </nav>
+
+          <div class="search-wrap">
+            <svg class="search-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input class="search-input" id="profileSearch" placeholder="Search by name…" oninput="filterProfiles()" />
+          </div>
+
+          <div class="child-list" id="profileList"></div>
+
+          <!-- Detail Modal -->
+          <div class="modal-overlay" id="profileDetail" style="display:none;">
+            <div class="modal-card">
+              <button class="modal-close" id="detailClose" onclick="closeDetail()">✕</button>
+              <div class="modal-avatar" id="detailAvatar">A</div>
+              <h3 class="modal-name" id="detailName">Aarav Sharma</h3>
+              <div class="modal-info-grid">
+                <div class="info-cell">
+                  <span class="info-icon">🎂</span>
+                  <span class="info-label">Age</span>
+                  <span class="info-val" id="detailAge">4 yrs</span>
+                </div>
+                <div class="info-cell">
+                  <span class="info-icon">👤</span>
+                  <span class="info-label">Parent</span>
+                  <span class="info-val" id="detailParent">Priya Sharma</span>
+                </div>
+                <div class="info-cell">
+                  <span class="info-icon">🗣️</span>
+                  <span class="info-label">Language</span>
+                  <span class="info-val" id="detailLang">Hindi</span>
+                </div>
+                <div class="info-cell">
+                  <span class="info-icon">📅</span>
+                  <span class="info-label">Attendance</span>
+                  <span class="info-val" id="detailAttendance">85%</span>
+                </div>
+              </div>
+              <div class="risk-section">
+                <span class="risk-label">Risk Status</span>
+                <span class="risk-badge" id="detailRisk">Low Risk</span>
+              </div>
+              <div class="attendance-bar-wrap">
+                <span class="abar-label">Attendance</span>
+                <div class="attendance-bar">
+                  <div class="attendance-fill" id="detailAttBar" style="width:85%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-branding">
+            <p class="brand-text">Project by <strong>EchoHands</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SCREEN 4 — MIGRATION UPDATE ===== -->
+      <section id="screen-migration" class="screen">
+        <div class="screen-scroll">
+          <nav class="mobile-nav">
+            <button class="nav-back" id="migration-back" onclick="navigateTo('screen-dashboard')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <h2 class="nav-title">Migration Update</h2>
+            <div class="nav-spacer"></div>
+          </nav>
+
+          <div class="migration-section">
+            <div class="mig-hero">
+              <div class="mig-hero-icon">
+                <svg viewBox="0 0 48 48" fill="none"><path d="M6 24h36M30 12l12 12-12 12" stroke="url(#gM)" stroke-width="2.5"/><circle cx="14" cy="24" r="6" stroke="url(#gM)" stroke-width="2"/><defs><linearGradient id="gM" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#F59E0B"/><stop offset="1" stop-color="#EF4444"/></linearGradient></defs></svg>
+              </div>
+              <h3>Family Moved</h3>
+              <p>Transfer child profile to a new location</p>
+            </div>
+
+            <div class="form-field">
+              <label>Select Child</label>
+              <select id="migChild">
+                <option value="">Choose a child…</option>
+              </select>
+            </div>
+
+            <div class="location-flow">
+              <div class="loc-from">
+                <span class="loc-label">📍 Current</span>
+                <span class="loc-value" id="migCurrentLoc">—</span>
+              </div>
+              <div class="loc-arrow">→</div>
+              <div class="loc-to">
+                <span class="loc-label">📍 New</span>
+                <span class="loc-value" id="migNewLoc">—</span>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>New State</label>
+              <select id="migState" onchange="updateDistricts()">
+                <option value="">Select state…</option>
+                <option>Maharashtra</option><option>Uttar Pradesh</option><option>Tamil Nadu</option><option>Karnataka</option><option>Gujarat</option><option>Rajasthan</option><option>West Bengal</option><option>Bihar</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>New District</label>
+              <select id="migDistrict">
+                <option value="">Select district…</option>
+              </select>
+            </div>
+
+            <button class="btn-primary btn-primary--amber" id="transferBtn" onclick="transferProfile()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12h18M13 5l7 7-7 7"/></svg>
+              Transfer Profile
+            </button>
+          </div>
+
+          <div class="project-branding">
+            <p class="brand-text">Project by <strong>EchoHands</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SCREEN 5 — AI RISK ALERTS ===== -->
+      <section id="screen-alerts" class="screen">
+        <div class="screen-scroll">
+          <nav class="mobile-nav">
+            <button class="nav-back" id="alerts-back" onclick="navigateTo('screen-dashboard')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <h2 class="nav-title">AI Risk Alerts</h2>
+            <div class="nav-spacer"></div>
+          </nav>
+
+          <div class="alert-stats-row">
+            <div class="alert-pill alert-pill--high">
+              <span class="ap-num">5</span>
+              <span class="ap-lbl">High</span>
+            </div>
+            <div class="alert-pill alert-pill--med">
+              <span class="ap-num">12</span>
+              <span class="ap-lbl">Medium</span>
+            </div>
+            <div class="alert-pill alert-pill--low">
+              <span class="ap-num">6</span>
+              <span class="ap-lbl">Low</span>
+            </div>
+          </div>
+
+          <div class="alerts-list" id="alertList"></div>
+
+          <div class="project-branding">
+            <p class="brand-text">Project by <strong>EchoHands</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SCREEN 6 — SUPERVISOR DASHBOARD ===== -->
+      <section id="screen-supervisor" class="screen">
+        <div class="screen-scroll">
+          <nav class="mobile-nav">
+            <button class="nav-back" id="supervisor-back" onclick="navigateTo('screen-dashboard')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <h2 class="nav-title">Supervisor Dashboard</h2>
+            <div class="nav-spacer"></div>
+          </nav>
+
+          <div class="chart-cards">
+            <div class="chart-card">
+              <div class="chart-header">
+                <h4>📈 Enrollment</h4>
+                <span class="chart-badge chart-badge--up">↑ 12%</span>
+              </div>
+              <canvas id="chartEnrollment"></canvas>
+            </div>
+
+            <div class="chart-card">
+              <div class="chart-header">
+                <h4>🔍 Missing Children</h4>
+                <span class="chart-badge chart-badge--down">↓ 3%</span>
+              </div>
+              <canvas id="chartMissing"></canvas>
+            </div>
+
+            <div class="chart-card">
+              <div class="chart-header">
+                <h4>⚠️ At-Risk Children</h4>
+                <span class="chart-badge chart-badge--warn">23 active</span>
+              </div>
+              <canvas id="chartRisk"></canvas>
+            </div>
+          </div>
+
+          <div class="project-branding">
+            <p class="brand-text">Project by <strong>EchoHands</strong></p>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /phone-screen -->
+    <div class="phone-home-bar"></div>
+  </div><!-- /phone-frame -->
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
